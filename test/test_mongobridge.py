@@ -58,3 +58,8 @@ class TestMongoBridge(TestCase):
         with self.assertRaises(ServerSelectionTimeoutError):
             self.mongo_bridge = MongoBridge("mongodb://nohost:27017/", "Blah", "Artists")
             artist = self.mongo_bridge.get_artist_by_id(269365)
+
+    def test_my(self):
+        artist = self.mongo_bridge.get_artist_by_id(269365)
+        self.assertNotEqua("Stephen Tarter", artist["artistName"])
+

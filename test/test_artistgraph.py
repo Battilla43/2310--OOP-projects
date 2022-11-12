@@ -32,3 +32,8 @@ class TestArtistGraph(TestCase):
         self.emptygraph.add_artist(self.a)
         self.assertTrue(self.emptygraph.has_node(self.a))
         self.assertFalse(self.emptygraph.has_node(self.b))
+
+    def test_my(self):
+        self.assertNotEqual(234, len(self.artistgraph.artists))
+        self.assertFalse(self.emptygraph.has_edge(self.b, self.b))
+
