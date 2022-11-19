@@ -61,5 +61,5 @@ class TestMongoBridge(TestCase):
 
     def test_my(self):
         artist = self.mongo_bridge.get_artist_by_id(269365)
-        self.assertNotEqua("Stephen Tarter", artist["artistName"])
+        self.assertNotEqual("Stephen Tarter", artist["artistName"])
 

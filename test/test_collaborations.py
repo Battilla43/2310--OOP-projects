@@ -1,6 +1,8 @@
+from typing import List
 from unittest import TestCase
-import applayer.collaboration
-from applayer.artistlist import ArtistList
+from applayer.artist import Artist
+from applayer.collaboration import Collaboration
+from datalayer.mongobridge import MongoBridge 
 
 #extremely unsure how to do this will make tests before coding #
 

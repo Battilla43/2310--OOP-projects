@@ -2,6 +2,8 @@ import pymongo
 from typing import List, Any
 from multipledispatch import dispatch
 
+from applayer import artist
+from datalayer.artistnotfound import ArtistNotFound
 
 class MongoBridge(object):
     """
@@ -42,7 +44,10 @@ class MongoBridge(object):
         artists = self.__myCollection.find()
         for a in artists:
             result.append(a)
-        return result
+
+        if result is not None:
+            return result
+        raise ArtistNotFound("ArtistNotFound", 42)
 
     def get_artists_from_list(self, a_list: list[int]) -> List[dict]:
         """
@@ -65,7 +70,10 @@ class MongoBridge(object):
             a = self.__myCollection.find_one(afilter)
             if a is not None:
                 result.append(a)
-        return result
+
+        if result is not None:
+            return result
+        raise ArtistNotFound("ArtistNotFound", 42)
 
     def get_artist_by_id(self, aid: int) -> dict:
         """
@@ -83,6 +91,16 @@ class MongoBridge(object):
         :return: dictionary with artist info
         :raises: ArtistNotFound if the artist is not found in db, ServerSelectionTimeoutError if the mongodb is not running
         """
+
         afilter = {"artistID": aid}
         artist = self.__myCollection.find_one(afilter)
-        return artist
+
+        if artist is not None:
+            return artist
+        raise ArtistNotFound("ArtistNotFound", 42)
+
+
+
+
+
+
