@@ -1,4 +1,4 @@
-This was a class project for Object Oriented Programming using Python. 
+This was a class project for Object Oriented Programming using Python. The "completed solution" in applayer and datalayer is where my contributions are found.
 
 
 #### Required Libraries
