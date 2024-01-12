@@ -1,3 +1,6 @@
+This was a class project for Object Oriented Programming using Python. 
+
+
 #### Required Libraries
 See requirements.txt for the list of all python libraries
 used for the implementation and execution of this project.
